@@ -1,4 +1,4 @@
 # CV
 A repository that contains the code of my online cv. 
 
-This portfolio has been cloned from [mmacneil](https://github.com/mmacneil/devfolio).
+This repository has been created using v0.
