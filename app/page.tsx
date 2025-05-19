@@ -1,13 +1,9 @@
-import dynamic from 'next/dynamic'
-
-const ChatInterface = dynamic(() => import('@/components/chat-interface'), {
-  ssr: false,
-})
+import ClientChatWrapper from '@/components/client-chat-wrapper'
 
 export default function Home() {
   return (
     <main>
-      <ChatInterface />
+      <ClientChatWrapper />
     </main>
   )
 }
