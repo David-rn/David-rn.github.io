@@ -10,7 +10,8 @@ const nextConfig = {
     unoptimized: true,
   },
   output: 'export',
-  basePath: 'https://github.com/David-rn/David-rn.github.io',
+  basePath: '/David-rn.github.io',
+  reactStrictMode: true,
 }
 
 export default nextConfig

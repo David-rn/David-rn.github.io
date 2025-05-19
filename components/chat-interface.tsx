@@ -7,18 +7,10 @@ import { useState, useRef, useEffect } from "react"
 import {
   Plus,
   ArrowUp,
-  Menu,
-  PenSquare,
-  RefreshCcw,
-  Copy,
-  Share2,
-  ThumbsUp,
-  ThumbsDown,
   Briefcase,
   GraduationCap,
   FileText,
   Code,
-  Wrench,
   Mail,
   User,
 } from "lucide-react"
@@ -363,6 +355,12 @@ export default function ChatInterface() {
       },
     ])
 
+    // Add a delay before the second vibration
+    setTimeout(() => {
+      // Add vibration when streaming begins
+      navigator.vibrate(50)
+    }, 200) // 200ms delay to make it distinct from the first vibration
+
     // Stream the text
     await simulateTextStreaming(response)
 
@@ -374,6 +372,8 @@ export default function ChatInterface() {
     // Add to completed messages set to prevent re-animation
     setCompletedMessages((prev) => new Set(prev).add(messageId))
 
+    // Add vibration when streaming ends
+    navigator.vibrate(50)
 
     // Reset streaming state
     setStreamingWords([])
@@ -420,7 +420,8 @@ export default function ChatInterface() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (inputValue.trim() && !isStreaming) {
-
+      // Add vibration when message is submitted
+      navigator.vibrate(50)
 
       const userMessage = inputValue.trim()
 
