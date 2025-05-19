@@ -659,7 +659,7 @@ export default function ChatInterface() {
                 disabled={isStreaming}
               >
                 {bubble.icon}
-                <span className="text-gray-900 text-sm">{bubble.label}</span>
+                <span className="text-gray-900 text-sm hidden sm:inline">{bubble.label}</span>
               </Button>
             ))}
           </div>
@@ -673,7 +673,7 @@ export default function ChatInterface() {
               )}
               onClick={handleInputContainerClick}
             >
-              <div className="pb-9">
+              <div className="flex items-center gap-2">
                 <Textarea
                   ref={textareaRef}
                   placeholder={isStreaming ? "Waiting for response..." : "Ask about my portfolio..."}
@@ -688,41 +688,19 @@ export default function ChatInterface() {
                     }
                   }}
                 />
-              </div>
-
-              <div className="absolute bottom-3 left-3 right-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center space-x-2">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      size="icon"
-                      className={cn(
-                        "rounded-full h-8 w-8 flex-shrink-0 border-gray-200 p-0 transition-colors",
-                        activeButton === "add" && "bg-gray-100 border-gray-300",
-                      )}
-                      onClick={() => toggleButton("add")}
-                      disabled={isStreaming}
-                    >
-                      <Plus className={cn("h-4 w-4 text-gray-500", activeButton === "add" && "text-gray-700")} />
-                      <span className="sr-only">Add</span>
-                    </Button>
-                  </div>
-
-                  <Button
-                    type="submit"
-                    variant="outline"
-                    size="icon"
-                    className={cn(
-                      "rounded-full h-8 w-8 border-0 flex-shrink-0 transition-all duration-200",
-                      hasTyped ? "bg-black scale-110" : "bg-gray-200",
-                    )}
-                    disabled={!inputValue.trim() || isStreaming}
-                  >
-                    <ArrowUp className={cn("h-4 w-4 transition-colors", hasTyped ? "text-white" : "text-gray-500")} />
-                    <span className="sr-only">Submit</span>
-                  </Button>
-                </div>
+                <Button
+                  type="submit"
+                  variant="outline"
+                  size="icon"
+                  className={cn(
+                    "rounded-full h-8 w-8 border-0 flex-shrink-0 transition-all duration-200",
+                    hasTyped ? "bg-black scale-110" : "bg-gray-200",
+                  )}
+                  disabled={!inputValue.trim() || isStreaming}
+                >
+                  <ArrowUp className={cn("h-4 w-4 transition-colors", hasTyped ? "text-white" : "text-gray-500")} />
+                  <span className="sr-only">Submit</span>
+                </Button>
               </div>
             </div>
           </div>
